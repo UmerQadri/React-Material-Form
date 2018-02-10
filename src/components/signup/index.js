@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import {BrowserRouter as Router,
-  Route,
-  Link, withRouter} from 'react-router-dom';
-import './styles.css'
+import "./styles.css";
 
-
-
-export default class Sigin extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: "",
+      lastName: "",
       email: "",
       password: ""
     };
@@ -35,13 +32,33 @@ export default class Sigin extends Component {
         className="container"
       >
         <TextValidator
+          floatingLabelText="First Name"
+          onChange={this.handleChange}
+          name="firstName"
+          value={this.state.firstName}
+          validators={["required"]}
+          errorMessages={["this field is required"]}
+          style={{ width: "100%" }}
+        />
+        <br />
+        <TextValidator
+          floatingLabelText="Last Name"
+          onChange={this.handleChange}
+          name="lastName"
+          value={this.state.lastName}
+          validators={["required"]}
+          errorMessages={["this field is required"]}
+          style={{ width: "100%" }}
+        />
+        <br />
+        <TextValidator
           floatingLabelText="Email"
           onChange={this.handleChange}
           name="email"
           value={this.state.email}
           validators={["required", "isEmail"]}
           errorMessages={["this field is required", "email is not valid"]}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
         <br />
         <TextValidator
@@ -52,12 +69,10 @@ export default class Sigin extends Component {
           value={this.state.password}
           validators={["required"]}
           errorMessages={["this field is required"]}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
         <br />
-        <RaisedButton label="Login" primary={true} type="submit"/>
-        <p className="signupMessage">Don't have an account? 
-        <Link to="/signup">Signup</Link></p>
+        <RaisedButton label="Signup" primary={true} type="submit" />
       </ValidatorForm>
     );
   }
