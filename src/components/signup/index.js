@@ -3,7 +3,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import "./styles.css";
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,3 +77,7 @@ export default class SignUp extends Component {
     );
   }
 }
+
+
+
+export default SignUp;
