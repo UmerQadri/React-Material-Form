@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import RaisedButton from "material-ui/RaisedButton";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import './styles.css'
 
-const style = {
-  width: "30%",
-  marginTop: "10%",
-  marginLeft: "auto",
-  marginRight: "auto"
-}
+
 
 export default class Sigin extends Component {
   constructor(props) {
@@ -33,7 +29,7 @@ export default class Sigin extends Component {
         ref="form"
         onSubmit={this.handleSubmit}
         onError={errors => console.log(errors)}
-        style={style}
+        className="container"
       >
         <TextValidator
           floatingLabelText="Email"
@@ -52,11 +48,12 @@ export default class Sigin extends Component {
           type="password"
           value={this.state.password}
           validators={["required"]}
-          errorMessages={["this field is required", "email is not valid"]}
+          errorMessages={["this field is required"]}
           style={{width: "100%"}}
         />
         <br />
-        <RaisedButton label="Login" primary={true} />
+        <RaisedButton label="Login" primary={true} type="submit"/>
+        <p className="signupMessage">Don't have an account? Signup</p>
       </ValidatorForm>
     );
   }
